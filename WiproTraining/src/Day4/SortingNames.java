@@ -1,40 +1,32 @@
 package Day4;
 import java.util.Scanner;
 
-import java.util.Arrays;
-
 public class SortingNames {
-
-	public static void main(String[] args) {
-		
-		Scanner sc = new Scanner(System.in);
-		
-		System.out.println("How my Students are there");
-		int students= sc.nextInt();
-		sc.nextLine();
-		
-		String[] str= new String[students];
-		
-		
-		System.out.println("Enter the names : ");
-		
-		for(int i=0; i<students; i++)
-		{
-            System.out.print("Student " + (i + 1) + ": ");
-			str[i] =sc.nextLine();
-		}
-		
-		Arrays.sort(str);
-		
-
-        System.out.println("\nSorted Student Names:");
-        for (int i = 0; i < str.length; i++) {
-            System.out.println(str[i]);
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the number of names: ");
+        int n = sc.nextInt();
+        sc.nextLine();
+        String[] names = new String[n];
+ 
+        for (int i = 0; i < n; i++) {
+            System.out.print("Enter name " + (i + 1) + ": ");
+            names[i] = sc.nextLine();
+        } 
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - 1 - i; j++) {
+                if (names[j].compareToIgnoreCase(names[j + 1]) > 0) {
+                  
+                    String temp = names[j];
+                    names[j] = names[j + 1];
+                    names[j + 1] = temp;
+                }
+                }
         }
-	
-		sc.close();
-		
-
-	}
-
+        System.out.println("\nSorted Names:");
+        for (String name : names) {
+            System.out.println(name);
+        }
+        sc.close();
+    }
 }
