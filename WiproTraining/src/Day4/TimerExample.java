@@ -4,27 +4,29 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 
-public class TimerExample {
-public static void main(String[] args)  {
-	
-	while(true) {
-		java.time.LocalTime now=java.time.LocalTime.now();
-		int hourtime=now.getHour();
-		
-		if(hourtime==13) {
-			System.out.println("lunch break remainder");
-		}
-		else if(hourtime==15) {
-			System.out.println("tea break");
-		}
-		else {
-			System.out.println("complete pending work...........");
-		}
-		try {
-			Thread.sleep(3600000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+import java.util.Timer;
+import java.util.TimerTask;
+
+abstract class TaskRemainder {
+	abstract void remaind();
+}
+
+class MyReminder extends TaskRemainder {
+	@Override
+	void remaind() {
+		System.out.println("One hr. done time to check next task.");
 	}
 }
+
+public class TimerExample {
+	public static void main(String[] args) {
+		MyReminder reminder = new MyReminder();
+		Timer timer = new Timer();
+
+		timer.scheduleAtFixedRate(new TimerTask() {					
+			public void run() {
+				reminder.remaind(); 
+			}
+		}, 1000, 3600); 
+	}
 }

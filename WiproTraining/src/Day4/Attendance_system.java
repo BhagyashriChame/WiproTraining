@@ -19,7 +19,7 @@ public class Attendance_system {
             System.out.print("Is " + name[i] + " present? (P/A): ");
             Status[i] = sc.nextLine().toUpperCase();
  
-            // Optional: Validate input
+      
             if (!Status[i].equals("P") && !Status[i].equals("A")) {
                 System.out.println("Invalid input. Marking Absent by default.");
                 Status[i] = "A";
