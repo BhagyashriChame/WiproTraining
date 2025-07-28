@@ -7,31 +7,27 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class Filehandleprogram {
-	
-		public static void main(String[] args) {
-		
-			File f1 =new File("C:\\Users\\Bhagyashri Chame\\Documents\\FileHandle.txt");
-			try {
-				BufferedReader br1= new BufferedReader(new FileReader(f1));
-				String line=br1.readLine();
-			    while(line!=null) {
-			    	System.out.println("File Content "+line);
-			    	line=br1.readLine();
-			    	
-			    }
-			   br1.close();
-			}
-			catch(FileNotFoundException e) {
-				System.out.println("File not found error");
-			}
-			catch(IOException e) {
-				System.out.println("IO error occured while reading the file");
-			}
-			finally {
-				System.out.println("this is the complete excution");
-			}
-			
-		}
-	}
 
+    public static void main(String[] args) {
 
+        File file = new File("C:\\Users\\Bhagyashri Chame\\Documents\\FileHandle.txt");
+
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(file));
+            String line = reader.readLine();
+
+            while (line != null) {
+                System.out.println("File Content: " + line);
+                line = reader.readLine();
+            }
+
+            reader.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found error");
+        } catch (IOException e) {
+            System.out.println("IO error occurred while reading the file");
+        } finally {
+            System.out.println("This is the complete execution");
+        }
+    }
+}
