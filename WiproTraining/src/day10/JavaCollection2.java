@@ -13,12 +13,21 @@ public class JavaCollection2 {
 			a.add(6000);
 			a.add(7000);
 			System.out.println(a);
+			
 			Collections.sort(a);
 			System.out.println("sorted:"+a);
-			int  b =Collections.binarySearch(a,5000);
-			System.out.println("Index of 5000 in sorted list: "+b);
-			Collections.reverse(a);
-			System.out.println(a);
+			
+			//int  b =Collections.binarySearch(a,5000);
+			//System.out.println("Index of 5000 in sorted list: "+b);
+			
+			//Collections.reverse(a);
+			//System.out.println(a);
+			
+			Collections.swap(a, 0, 1);
+	        System.out.println("After swap(0,1): " + a);
+			
+			
+			
 			
 		}
 	}
